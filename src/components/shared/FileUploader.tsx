@@ -3,12 +3,12 @@ import { FileWithPath, useDropzone } from "react-dropzone";
 import { Button } from "../ui/button";
 
 type FileUploaderProps = {
-  fieldChange: (FILES: File[]) => void;
+  fieldChange: (files: File[]) => void;
   mediaUrl: string;
 };
 const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const [file, setFile] = useState<File[]>([]);
-  const [fileUrl, setFileUrl] = useState<string>("");
+  const [fileUrl, setFileUrl] = useState<string>(mediaUrl);
   const onDrop = useCallback(
     (acceptedFiles: FileWithPath[]) => {
       // Do something with the files
@@ -20,7 +20,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   );
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: { "image/*": [".png", ".jpg", "jpeg", ".svg"] },
+    accept: { "image/*": [".png", ".jpg", ".jpeg", ".svg"] },
   });
 
   return (
