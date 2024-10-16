@@ -1,7 +1,7 @@
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "../../hooks/use-toast";
 import { useForm } from "react-hook-form";
 
 import {
@@ -11,10 +11,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "../../components/ui/form";
+import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
-import { SigninValidation } from "@/lib/validation";
+import { SigninValidation } from "../../lib/validation";
 import Loader from "../../components/shared/Loader";
 
 import { useSignInAccount } from "../../lib/react-query/queriesAndMutations";
