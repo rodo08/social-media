@@ -13,3 +13,11 @@ export const SigninValidation = z.object({
   email: z.string().email({ message: "Invalid email" }),
   password: z.string().min(8, { message: "Too short" }),
 });
+
+//custom post validation
+export const PostValidation = z.object({
+  caption: z.string().min(5).max(500),
+  file: z.custom<File[]>(),
+  location: z.string().min(2).max(100),
+  tags: z.string(),
+});
