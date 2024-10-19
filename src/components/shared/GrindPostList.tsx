@@ -16,6 +16,10 @@ const GrindPostList = ({
 }: GridPostListProps) => {
   const { user } = useUserContext();
 
+  if (!Array.isArray(posts)) {
+    return <div>Error: posts no es un arreglo</div>;
+  }
+
   return (
     <ul className="grid-container">
       {posts.map((post) => (
