@@ -20,12 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* shadcn */
-    "_vite-env.d.ts": {
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["./src/*"]
-      }
+    /* Configuración de alias de rutas */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]

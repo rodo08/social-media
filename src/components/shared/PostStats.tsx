@@ -7,7 +7,6 @@ import {
   useSavePost,
 } from "../../lib/react-query/queriesAndMutations";
 import { checkIsLiked } from "../../lib/utils";
-import { record, set } from "zod";
 import Loader from "./Loader";
 
 type PostStatsProps = {
@@ -32,7 +31,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
 
   useEffect(() => {
     setIsSaved(!!savedPostRecord);
-  }, [currentUser]);
+  }, [currentUser, savedPostRecord]);
 
   const handleLikePost = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -61,7 +60,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
   };
 
   return (
-    <div className="flex justify-between items-center z-20">
+    <div className="flex justify-between items-center pt-4 z-20">
       <div className="flex gap-2 mr-5">
         <img
           src={
