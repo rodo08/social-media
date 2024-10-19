@@ -15,7 +15,7 @@ import SignUpForm from "./_auth/forms/SignUpForm";
 import AuthLayout from "./_auth/AuthLayout";
 import RootLayout from "./_root/RootLayout";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "../src/components/ui/toaster";
 
 export const App = () => {
   return (
