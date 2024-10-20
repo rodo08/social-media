@@ -21,7 +21,6 @@ import {
   updatedPost,
 } from "../appwrite/api";
 import { INewPost, INewUser, IUpdatePost } from "../../types";
-import { create } from "domain";
 import { QUERY_KEYS } from "./queryKeys";
 
 //initialize a new mutation function to use it within sign up form
@@ -165,7 +164,8 @@ export const useDeletePost = () => {
   return useMutation({
     mutationFn: ({ postId, imageId }: { postId: string; imageId: string }) =>
       deletePost(postId, imageId),
-    onSuccess: (data) => {
+    onSuccess: () => {
+      // onSuccess: (data) => {
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
       });
@@ -176,13 +176,14 @@ export const useDeletePost = () => {
 export const useGetPosts = () => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-    queryFn: getInfinitePosts,
+    queryFn: getInfinitePosts, //string | null
     getNextPageParam: (lastPage) => {
       if (lastPage && lastPage.documents.length === 0) return null;
 
-      const lastId = lastPage.documents[lastPage?.documents.length - 1].$id;
-      return lastId;
+      const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
+      return lastId ?? null; //lastId string or null
     },
+    initialPageParam: null, //initialPageParam as null
   });
 };
 

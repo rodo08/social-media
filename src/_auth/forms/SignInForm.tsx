@@ -40,8 +40,6 @@ const SigninForm = () => {
   async function onSubmit(values: z.infer<typeof SigninValidation>) {
     //user loggin in
 
-    console.log("here");
-
     const session = await signInAccount({
       email: values.email,
       password: values.password,
@@ -57,11 +55,8 @@ const SigninForm = () => {
 
     const isLoggedIn = await checkAuthUser();
 
-    console.log(isLoggedIn);
-
     if (isLoggedIn) {
       form.reset();
-      console.log("navigate");
       navigate("/");
     } else {
       return toast({

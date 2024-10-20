@@ -338,12 +338,12 @@ export const searchPosts = async (searchTerm: string) => {
 export const getInfinitePosts = async ({
   pageParam,
 }: {
-  pageParam: number;
+  pageParam: string | null; // Acepta string o null
 }) => {
   const queries = [
     Query.orderDesc("$updatedAt"),
     Query.limit(10),
-    ...(pageParam ? [Query.cursorAfter(pageParam.toString())] : []),
+    ...(pageParam ? [Query.cursorAfter(pageParam)] : []), // Maneja pageParam como string o null
   ];
 
   try {
