@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetPostById } from "../../lib/react-query/queriesAndMutations";
 import { Link, useParams } from "react-router-dom";
 import Loader from "../../components/shared/Loader";
