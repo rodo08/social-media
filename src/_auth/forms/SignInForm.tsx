@@ -74,7 +74,7 @@ const SigninForm = () => {
           Log in to your account
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          tWelcome back! please enter your account details
+          Welcome back! please enter your account details
         </p>
 
         <form
